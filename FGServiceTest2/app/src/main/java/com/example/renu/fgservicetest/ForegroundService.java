@@ -52,6 +52,7 @@ public class ForegroundService extends Service {
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
 
+    String url = "http://blynk-cloud.com/ea446f7a4ef4437a88726889ebf949fd/get/v1";
     String TAG = "FG_TASK_TEST";
     Boolean status = FALSE;
     Timer timer;
@@ -65,8 +66,12 @@ public class ForegroundService extends Service {
 
 
     public void SendSerialData(String string) {
-        serialPort.write(string.getBytes());
-        Log.d(TAG, "\nData Sent : " + string + "\n");
+
+        if(USBInitDone){
+            serialPort.write(string.getBytes());
+            Log.d(TAG, "\nData Sent : " + string + "\n");
+        }
+
 
     }
 
@@ -193,24 +198,10 @@ public class ForegroundService extends Service {
             @Override
             public void run() {
                 //makeText(getApplicationContext()," TIMER Task called ",Toast.LENGTH_LONG).show();
-                Log.w("BACKGROUND TEST TASK","Running");
-                //new Download().execute();
+                //Log.w("BACKGROUND TEST TASK","Running");
+                new Download().execute();
                 //String resp = getHTTPResponse("http://blynk-cloud.com/ea446f7a4ef4437a88726889ebf949fd/update/d2?value=1");
                 //Log.w("BACKGROUND TEST TASK",resp);
-                if (USBInitDone){
-
-                    if(status) {
-                        SendSerialData("w");
-
-                        // Prepare a request object
-                        status = !status;
-                    }
-                    else{
-                        SendSerialData("s");
-                        status = !status;
-                    }
-                }
-
             }
         };
 
@@ -219,7 +210,8 @@ public class ForegroundService extends Service {
     {
         timer = new Timer();
         InitTimerTask();
-        timer.schedule(timerTask,0,1000);
+        //timer.schedule(timerTask,0,);
+        timer.scheduleAtFixedRate(timerTask,0,100);
 
     }
 
@@ -229,6 +221,46 @@ public class ForegroundService extends Service {
         if (timer != null) {
             timer.cancel();
             timer = null;
+        }
+
+    }
+
+    public int returnData(String raw)
+    {
+        int start_index = raw.indexOf('"');
+        int end_index = raw.indexOf('"',start_index + 1);
+        return Integer.parseInt((raw.substring(start_index + 1 ,end_index)));
+
+    }
+
+    public void parseResult(String value)
+    {
+        String[] chunks = value.split(",");
+
+        int count = 0;
+        int[] result = new int[2];
+
+        for (String chunk:chunks) {
+            //Log.d(TAG,chunk);
+            int element = returnData(chunk);
+            result[count++] = element;
+        }
+
+        if(result[0] == 11){
+            Log.d(TAG,"Forward");
+            SendSerialData("w");
+        }
+        if(result[0] == 22){
+            Log.d(TAG,"Back");
+            SendSerialData("s");
+        }
+        if(result[0] == 44){
+            Log.d(TAG,"Left");
+            SendSerialData("x");
+        }
+        if(result[0] == 33){
+            SendSerialData("x");
+            Log.d(TAG,"Right");
         }
 
     }
@@ -320,7 +352,8 @@ public class ForegroundService extends Service {
             String out = "DefaultValue";
             HttpClient httpclient = new DefaultHttpClient();
 
-            HttpGet httpget;
+            HttpGet httpget = new HttpGet(url);
+            /*
             if(status) {
                 // Prepare a request object
                 String urlOff = "http://blynk-cloud.com/ea446f7a4ef4437a88726889ebf949fd/update/d2?value=0";
@@ -334,6 +367,7 @@ public class ForegroundService extends Service {
                 Log.d(TAG,"Sending ON");
                 status = !status;
             }
+            */
 
             // Execute the request
             HttpResponse response;
@@ -396,7 +430,8 @@ public class ForegroundService extends Service {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Log.d(TAG, result);
-            //DisplayText.setText(result);
+
+            parseResult(result);
         }
     }
 }
