@@ -324,16 +324,23 @@ public class ForegroundService extends Service {
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
-        Notification notification = new NotificationCompat.Builder(this,"mtpdeviceChannel")
-                .setContentTitle("MTP Device")
-                .setTicker("MTP Device ")
-                .setContentText("Running MTP Service")
-                .setSmallIcon(R.drawable.test)
-                .setLargeIcon(Bitmap.createScaledBitmap(icon, 128, 128, false))
-                .setOngoing(true).build();
 
-        startForeground(1001,notification);
-        return START_STICKY;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+
+            Notification notification = new NotificationCompat.Builder(this, "mtpdeviceChannel")
+                    .setContentTitle("MTP Device")
+                    .setTicker("MTP Device ")
+                    .setContentText("Running MTP Service")
+                    .setSmallIcon(R.drawable.test)
+                    .setLargeIcon(Bitmap.createScaledBitmap(icon, 128, 128, false))
+                    .setOngoing(true).build();
+
+            startForeground(1001, notification);
+        }
+
+            return START_STICKY;
+
     }
     @Override
     public void onDestroy() {
