@@ -3,17 +3,24 @@ package com.example.renu.fgservicetest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.hardware.usb.UsbDevice;
+import android.hardware.usb.UsbDeviceConnection;
+import android.hardware.usb.UsbManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
@@ -26,17 +33,159 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.content.ContentValues.TAG;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
+import com.felhr.usbserial.UsbSerialDevice;
+import com.felhr.usbserial.UsbSerialInterface;
+
+
 
 public class ForegroundService extends Service {
 
+    public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
+
     String TAG = "FG_TASK_TEST";
-    Boolean status = Boolean.FALSE;
+    Boolean status = FALSE;
     Timer timer;
     TimerTask timerTask;
+    Boolean USBInitDone = FALSE;
+    UsbManager usbManager;
+    UsbDevice device;
+    UsbSerialDevice serialPort;
+    UsbDeviceConnection connection;
+
+
+
+    public void SendSerialData(String string) {
+        serialPort.write(string.getBytes());
+        Log.d(TAG, "\nData Sent : " + string + "\n");
+
+    }
+
+    public void SerialClose() {
+        SendSerialData("x");
+        try {
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        serialPort.close();
+        Log.d(TAG,"\nSerial Connection Closed! \n");
+
+    }
+
+    public void USB_Init()
+    {
+        HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
+        if (!usbDevices.isEmpty()) {
+            boolean keep = true;
+            for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
+                device = entry.getValue();
+                int deviceVID = device.getVendorId();
+                if (deviceVID == 9025)//Arduino Vendor ID
+                {
+                    PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
+                    usbManager.requestPermission(device, pi);
+                    keep = false;
+                } else {
+                    connection = null;
+                    device = null;
+                }
+
+                if (!keep)
+                    break;
+            }
+        }
+    }
+
+
+
+    UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
+        @Override
+        public void onReceivedData(byte[] arg0) {
+            String data = null;
+            try {
+                data = new String(arg0, "UTF-8");
+                data.concat("/n");
+                //tvAppend(textView, data);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    };
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { //Broadcast Receiver to automatically start and stop the Serial connection.
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(ACTION_USB_PERMISSION)) {
+                boolean granted = intent.getExtras().getBoolean(UsbManager.EXTRA_PERMISSION_GRANTED);
+                if (granted) {
+                    connection = usbManager.openDevice(device);
+                    serialPort = UsbSerialDevice.createUsbSerialDevice(device, connection);
+                    if (serialPort != null) {
+                        if (serialPort.open()) { //Set Serial Connection Parameters.
+                            //setUiEnabled(true);
+                            serialPort.setBaudRate(9600);
+                            serialPort.setDataBits(UsbSerialInterface.DATA_BITS_8);
+                            serialPort.setStopBits(UsbSerialInterface.STOP_BITS_1);
+                            serialPort.setParity(UsbSerialInterface.PARITY_NONE);
+                            serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
+                            serialPort.read(mCallback);
+                            //tvAppend(textView,"Serial Connection Opened!\n");
+                            USBInitDone = TRUE;
+
+                        } else {
+                            Log.d("SERIAL", "PORT NOT OPEN");
+                        }
+                    } else {
+                        Log.d("SERIAL", "PORT IS NULL");
+                    }
+                } else {
+                    Log.d("SERIAL", "PERM NOT GRANTED");
+                }
+            } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
+                    Log.d(TAG,"USB Init called on DEVICE_ATTTACHED");
+                    USB_Init();
+            } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
+                Log.d(TAG,"SerialClose called on DEVICE_DETACHED");
+                SerialClose();
+
+            }
+        }
+
+        ;
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void InitTimerTask()
     {
@@ -45,9 +194,22 @@ public class ForegroundService extends Service {
             public void run() {
                 //makeText(getApplicationContext()," TIMER Task called ",Toast.LENGTH_LONG).show();
                 Log.w("BACKGROUND TEST TASK","Running");
-                new Download().execute();
+                //new Download().execute();
                 //String resp = getHTTPResponse("http://blynk-cloud.com/ea446f7a4ef4437a88726889ebf949fd/update/d2?value=1");
                 //Log.w("BACKGROUND TEST TASK",resp);
+                if (USBInitDone){
+
+                    if(status) {
+                        SendSerialData("w");
+
+                        // Prepare a request object
+                        status = !status;
+                    }
+                    else{
+                        SendSerialData("s");
+                        status = !status;
+                    }
+                }
 
             }
         };
@@ -85,6 +247,16 @@ public class ForegroundService extends Service {
     public void onCreate() {
         Toast.makeText(this, "Service Created", Toast.LENGTH_LONG).show();
         StartTimer();
+        usbManager = (UsbManager) getSystemService(this.USB_SERVICE);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_USB_PERMISSION);
+        filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+        filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
+        registerReceiver(broadcastReceiver, filter);
+
+        if (!USBInitDone){
+            USB_Init();
+        }
     }
 
     @Override
@@ -134,7 +306,11 @@ public class ForegroundService extends Service {
     @Override
     public void onDestroy() {
         Toast.makeText(this, "Service Stopped", Toast.LENGTH_LONG).show();
+        USBInitDone = FALSE;
         StopTimer();
+        SerialClose();
+        unregisterReceiver(broadcastReceiver);
+
     }
 
     public class Download extends AsyncTask<Void, Void, String> {
