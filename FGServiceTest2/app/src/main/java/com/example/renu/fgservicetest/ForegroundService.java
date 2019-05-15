@@ -19,6 +19,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.res.TypedArrayUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -89,13 +91,14 @@ public class ForegroundService extends Service {
 
     public void USB_Init()
     {
+        int[] Device_list = new int[]{9025,5840};
         HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
         if (!usbDevices.isEmpty()) {
             boolean keep = true;
             for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
                 device = entry.getValue();
                 int deviceVID = device.getVendorId();
-                if (deviceVID == 9025)//Arduino Vendor ID
+                if (deviceVID == 5840 || deviceVID == 9025)//Arduino Vendor ID
                 {
                     PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
                     usbManager.requestPermission(device, pi);
@@ -199,9 +202,9 @@ public class ForegroundService extends Service {
             public void run() {
                 //makeText(getApplicationContext()," TIMER Task called ",Toast.LENGTH_LONG).show();
                 //Log.w("BACKGROUND TEST TASK","Running");
-                new Download().execute();
+                 new Download().execute();
                 //String resp = getHTTPResponse("http://blynk-cloud.com/ea446f7a4ef4437a88726889ebf949fd/update/d2?value=1");
-                //Log.w("BACKGROUND TEST TASK",resp);
+                //Log.w("BACKGROUND TEST TASK",resp)
             }
         };
 
@@ -211,7 +214,7 @@ public class ForegroundService extends Service {
         timer = new Timer();
         InitTimerTask();
         //timer.schedule(timerTask,0,);
-        timer.scheduleAtFixedRate(timerTask,0,100);
+        timer.scheduleAtFixedRate(timerTask,0,300);
 
     }
 
@@ -248,11 +251,15 @@ public class ForegroundService extends Service {
 
         if(result[0] == 11){
             Log.d(TAG,"Forward");
-            SendSerialData("w");
+            //SendSerialData("w");
+            SendSerialData("1");
+
         }
         if(result[0] == 22){
             Log.d(TAG,"Back");
-            SendSerialData("s");
+            //SendSerialData("s");
+            SendSerialData("0");
+
         }
         if(result[0] == 44){
             Log.d(TAG,"Left");
@@ -324,23 +331,16 @@ public class ForegroundService extends Service {
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
+        Notification notification = new NotificationCompat.Builder(this,"mtpdeviceChannel")
+                .setContentTitle("MTP Device")
+                .setTicker("MTP Device ")
+                .setContentText("Running MTP Service")
+                .setSmallIcon(R.drawable.test)
+                .setLargeIcon(Bitmap.createScaledBitmap(icon, 128, 128, false))
+                .setOngoing(true).build();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-
-            Notification notification = new NotificationCompat.Builder(this, "mtpdeviceChannel")
-                    .setContentTitle("MTP Device")
-                    .setTicker("MTP Device ")
-                    .setContentText("Running MTP Service")
-                    .setSmallIcon(R.drawable.test)
-                    .setLargeIcon(Bitmap.createScaledBitmap(icon, 128, 128, false))
-                    .setOngoing(true).build();
-
-            startForeground(1001, notification);
-        }
-
-            return START_STICKY;
-
+        startForeground(1001,notification);
+        return START_STICKY;
     }
     @Override
     public void onDestroy() {
