@@ -26,8 +26,7 @@ print("Numbr of packets : %d "%(num_packets))
 
 def Got_LinkStatus_Message(srcAddr, pkt):
 
-    print(pkt)
-    #num_neighbors = pkt.getlayer(ZigbeeNWKCommandPayload).fields['entry_count']
+    #print(srcAddr)
     num_neighbors = int(pkt[3],16) 
     nodeDict = NetworkDict[srcAddr]
     neigbor_list = nodeDict['NeighborList']
@@ -38,13 +37,17 @@ def Got_LinkStatus_Message(srcAddr, pkt):
     index = 4 ;
 
     for i in range(num_neighbors):
-        addr = int( pkt[(index + 4) : index + 6] + pkt[index : index+2] ,16)
+        addr = int( pkt[(index + 2) : index + 4] + pkt[index : index+2] ,16)
         print("          0x%x" %(addr))
-        if ( addr in neigbor_list):
+        if ( addr not in neigbor_list):
             neigbor_list.append(addr)
 
         #cost = int( (pkt[(index + 6)] + pkt[index + 4]) ,16)
         index = index + 6
+
+    nodeDict['NeighborList'] = neigbor_list
+
+    #print(NetworkDict)
 
 
 '''
