@@ -9,6 +9,7 @@ from killerbee.scapy_extensions import *    # this is explicit because I didn't 
 
 
 data = rdpcap(sys.argv[1])
+PANID = 4982
 num_packets = len(data)
 network_key = "0BAD0BAD0BAD0BAD0BAD0BAD0BAD0BAD"
 
@@ -24,22 +25,39 @@ print("Numbr of packets : %d "%(num_packets))
 
 
 def Got_LinkStatus_Message(srcAddr, pkt):
-    
-    num_neighbors = pkt.getlayer(ZigbeeNWKCommandPayload).fields['entry_count']
-    table = pkt.getlayer(ZigbeeNWKCommandPayload).fields['link_status_list']
-    neigbor_list = []
+
+    print(pkt)
+    #num_neighbors = pkt.getlayer(ZigbeeNWKCommandPayload).fields['entry_count']
+    num_neighbors = int(pkt[3],16) 
     nodeDict = NetworkDict[srcAddr]
     neigbor_list = nodeDict['NeighborList']
+    print(" Number of Neighbors : %d " %(num_neighbors))
+    print(" Neighbors : " )
 
+
+    index = 4 ;
+
+    for i in range(num_neighbors):
+        addr = int( pkt[(index + 4) : index + 6] + pkt[index : index+2] ,16)
+        print("          0x%x" %(addr))
+        if ( addr in neigbor_list):
+            neigbor_list.append(addr)
+
+        #cost = int( (pkt[(index + 6)] + pkt[index + 4]) ,16)
+        index = index + 6
+
+
+'''
+    table = pkt.getlayer(ZigbeeNWKCommandPayload).fields['link_status_list']
+    print( pkt.getlayer(ZigbeeNWKCommandPayload).fields)
+    neigbor_list = []
     if (srcAddr in NodeList):
-        print(" Number of Neighbors : %d " %(num_neighbors))
-        print(" Neighbors : " )
         for i in range(num_neighbors):
-            short_addr = table[0].neighbor_network_address
+            short_addr = table[i].neighbor_network_address
             if (short_addr not in neigbor_list):
                 neigbor_list.append(short_addr)
             print("          0x%x" %(short_addr))
-
+'''
 
 def Got_ZCL_OnOff_Message(srcAddr,pkt):
 
@@ -59,17 +77,29 @@ num = 1;
 for packet in data:
     print("#############################################################################")
     print("packet : %d " %(num)) 
-    print(packet.layers)
+    #print(packet.layers)
     print("------------------------------------------------------------")
    
+
+    if packet.haslayer(Dot15d4Data):
+        panid = packet.getlayer(Dot15d4Data).fields['dest_panid']
+        print(panid)
+
+        if (panid != PANID):
+            print(" Drop this packet panid %x " %(panid))
+            num = num + 1
+            continue
+
 
     if(packet.haslayer(ZigbeeNWK)):
 
         src_addr = packet.getlayer(ZigbeeNWK).fields['source']
         dest_addr = packet.getlayer(ZigbeeNWK).fields['destination']
 
-        print(" Source : 0x%x " %(src_addr))
-        print(" Destination : 0x%x " %(dest_addr))
+        print(packet.getlayer(ZigbeeNWK).fields)
+
+        #print(" Source : 0x%x " %(src_addr))
+        #print(" Destination : 0x%x " %(dest_addr))
 
         if (src_addr not in NodeList):
             NodeList.append(src_addr)
@@ -79,18 +109,18 @@ for packet in data:
                          'OnOff'   : 1
                         }
             NetworkDict[src_addr] = NodeDict
-
+            print("Adding  Source : 0x%x " %(src_addr))
 
     if(packet.haslayer(ZigbeeSecurityHeader)):
         print(" Need to Decrypt this packet ")
-        ed,raw = kbdecrypt(packet,network_key.decode('hex'),verbose=0)
+        ed,raw = kbdecrypt(packet,network_key.decode('hex'),verbose=5)
         #print (repr(ed))
         #print (type(raw))
         if (ed.haslayer(ZigbeeNWKCommandPayload)):
             cmd_id = ed.getlayer(ZigbeeNWKCommandPayload).fields['cmd_identifier']
             if( cmd_id == 8):
                 print("  This is a Link status message")
-                Got_LinkStatus_Message(src_addr, ed)
+                Got_LinkStatus_Message(src_addr, raw)
             else:
                 print(ed.getlayer(ZigbeeNWKCommandPayload).fields)
 
@@ -114,7 +144,7 @@ for packet in data:
             
 
 
-            print(ed.getlayer(ZigbeeClusterLibrary).fields)
+            #print(ed.getlayer(ZigbeeClusterLibrary).fields)
 
 
 
@@ -122,5 +152,5 @@ for packet in data:
     print("------------------------------------------------------------")
     num = num + 1
 
-
+print(NodeList)
 print(NetworkDict)
