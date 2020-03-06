@@ -61,15 +61,49 @@ def Got_LinkStatus_Message(srcAddr, pkt):
                 neigbor_list.append(short_addr)
             print("          0x%x" %(short_addr))
 '''
+def Got_ColorControl_Message(srcAddr, destAddr, raw):
+    
+    zclPyloadLength = len(raw) - 16
+    
+    if (destAddr == 0xfffd):
+        print("Ignore group cast for now ")
 
-def Got_ZCL_OnOff_Message(srcAddr,pkt):
+
+
+
+
+
+
+
+
+
+
+
+
+
+def Got_ZCL_OnOff_Message(srcAddr, destAddr, pkt):
+
+
+    zclPyloadLength = len(pkt) - 16
+
+    if (destAddr == 0xfffd):
+        print("Ignore group cast for now ")
+        return
+
+    if(zclPyloadLength > 6):
+        print("Probably Read Atrribute or Read Attr Response Ignore for now")
+        return
+
+
+
 
     print (" This is OnOff Message ")
     status = int(pkt[20:],16)
+    print (" Status : %d " %( status))
     print("     On Off status %d"%(status))
     if (srcAddr in NodeList):
         nodeDict = NetworkDict[srcAddr]
-        nodeDict['onOff'] = status
+        nodeDict['OnOff'] = status
 
 
 
@@ -99,7 +133,7 @@ for packet in data:
         src_addr = packet.getlayer(ZigbeeNWK).fields['source']
         dest_addr = packet.getlayer(ZigbeeNWK).fields['destination']
 
-        print(packet.getlayer(ZigbeeNWK).fields)
+        #print(packet.getlayer(ZigbeeNWK).fields)
 
         #print(" Source : 0x%x " %(src_addr))
         #print(" Destination : 0x%x " %(dest_addr))
@@ -128,6 +162,8 @@ for packet in data:
                 print(ed.getlayer(ZigbeeNWKCommandPayload).fields)
 
         if (ed.haslayer(ZigbeeAppDataPayload)):
+            print(ed.getlayer(ZigbeeClusterLibrary).fields)
+            print(ed.getlayer(ZigbeeAppDataPayload).fields)
 
             ed.getlayer(ZigbeeAppDataPayload).fields['frame_control'] = int(raw[0:2],16)
             ed.getlayer(ZigbeeAppDataPayload).fields['dst_endpoint'] = int(raw[2:4],16)
@@ -143,8 +179,16 @@ for packet in data:
             profileID = ed.getlayer(ZigbeeAppDataPayload).fields['profile'] 
 
             if (clusterID == 6 and profileID == 260):
-                Got_ZCL_OnOff_Message(src_addr, raw)
+                Got_ZCL_OnOff_Message(src_addr, dest_addr, raw)
             
+            if (clusterID == 0x0008 and profileID == 260):
+                print("Intended for Level control cluster  Ignore for now")
+                Got_ColorControl_Message(src_addr, dest_addr, raw)
+            
+            if (clusterID == 0x0300 and profileID == 260):
+                print("Intended for color control cluster  Ignore for now")
+                num = num+1
+                continue
 
 
             #print(ed.getlayer(ZigbeeClusterLibrary).fields)
@@ -157,3 +201,10 @@ for packet in data:
 
 print(NodeList)
 print(NetworkDict)
+
+for k,v in NetworkDict.iteritems():
+
+    print("Node : %x " %(k))
+
+    for kn,vn in v.iteritems():
+        print kn,vn
