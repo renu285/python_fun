@@ -1,0 +1,545 @@
+Numbr of packets : 64 
+#############################################################################
+packet : 1 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=173 fcs=0x30c |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 2 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=174 fcs=0xf0fa |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 3 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=25 fcs=0x6068 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=1 seqnum=60 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11000 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='?\xa2\x0e\x91~\xda' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=0 |>
+  This is a Link status message
+ Number of Neighbors : 0 
+ Neighbors : 
+------------------------------------------------------------
+#############################################################################
+packet : 4 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=175 fcs=0x59a7 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 5 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=176 fcs=0xb8c0 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=6 sf_beaconorder=0 sf_assocpermit=False sf_pancoord=False sf_reserved=1 sf_battlifeextend=False sf_finalcapslot=9 gts_spec_permit=True gts_spec_reserved=2 gts_spec_desccount=4 gts_dir_reserved=1 gts_dir_mask=64 pa_num_short=6 pa_reserved_1=0 pa_num_long=3 pa_reserved_2=1 |<Raw  load='\x0ej\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 6 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=30 fcs=0xf2d5 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=data flags=security+extended_src destination=0xfffd source=0x9f3b radius=30 seqnum=61 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11001 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\x9f\x06QZB\x84\xf6&\xb8`\xdb!\x00Hw\x84\xfdA\xeb\x97\xca\xfc\x1b\xd3' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffd 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=broadcast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=1 direction=0 manufacturer_specific=0 zcl_frametype=reserved3 transaction_sequence=0 command_identifier=read_attributes |<Raw  load='\x00\x00\x14\x81;\x9f\xec\xdb\xb5\xfe\xffW\x0b\x00\x8e' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 1, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 3}
+------------------------------------------------------------
+#############################################################################
+packet : 7 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=31 fcs=0x3853 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=1 seqnum=62 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11002 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='_%0\x8b,6' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=0 |>
+  This is a Link status message
+ Number of Neighbors : 0 
+ Neighbors : 
+------------------------------------------------------------
+#############################################################################
+packet : 8 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=32 fcs=0x8a54 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=data flags=security+extended_src destination=0xfffd source=0x9f3b radius=30 seqnum=61 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11003 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\xc7\xa59\x13T\xc4\t\x05Sv\xe0\x05\xe3\xb6\xfdR\x84\xe4u\x87\x84\xb0E\xac' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffd 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=broadcast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=1 direction=0 manufacturer_specific=0 zcl_frametype=reserved3 transaction_sequence=0 command_identifier=read_attributes |<Raw  load='\x00\x00\x14\x81;\x9f\xec\xdb\xb5\xfe\xffW\x0b\x00\x8e' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 1, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 3}
+------------------------------------------------------------
+#############################################################################
+packet : 9 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=33 fcs=0x984 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=data flags=security+extended_src destination=0xfffd source=0x9f3b radius=30 seqnum=61 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11004 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='<\xbfI\xa7\x97c\x0f\xdb\x10\xe4\xb0\xd5\x9b\xb0\xeff\x1d\x81\xdd%\xde.\x04\xf8' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffd 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=broadcast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=1 direction=0 manufacturer_specific=0 zcl_frametype=reserved3 transaction_sequence=0 command_identifier=read_attributes |<Raw  load='\x00\x00\x14\x81;\x9f\xec\xdb\xb5\xfe\xffW\x0b\x00\x8e' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 1, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 3}
+------------------------------------------------------------
+#############################################################################
+packet : 10 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=177 fcs=0x119d |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 11 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=178 fcs=0xe26b |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 12 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=34 fcs=0xd075 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=1 seqnum=63 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11005 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='$\xcc\xdf\x84\r\xc6' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=0 |>
+  This is a Link status message
+ Number of Neighbors : 0 
+ Neighbors : 
+------------------------------------------------------------
+#############################################################################
+packet : 13 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=179 fcs=0x4b36 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 14 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=180 fcs=0xd96 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 15 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=35 fcs=0x6fcc |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=1 seqnum=68 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11006 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='}\xf6\x1a\xb1\xb6%' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=0 |>
+  This is a Link status message
+ Number of Neighbors : 0 
+ Neighbors : 
+------------------------------------------------------------
+#############################################################################
+packet : 16 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=181 fcs=0xa4cb |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 17 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=36 fcs=0x2818 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=75 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11007 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='I\xa2\xe3\x86\xa4\x00\xb5=\x96\x0b' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=1 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 1, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 18 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=37 fcs=0x1eb0 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=75 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11008 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\x98\x0b+\xe7\xfa?D\xac\xb9\xdf' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=1 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 1, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 19 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=38 fcs=0x9f3d |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=75 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11009 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='&\xe6z\x9e\x19\xdc\xff\x186m' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=1 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 1, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 20 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=39 fcs=0x9acd |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=75 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x1100a source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\x8f\x1cJ)k\x02\xd5s\xa9S' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=1 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 1, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 21 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=182 fcs=0x573d |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 22 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=185 fcs=0x9709 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xee\xe5' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 23 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=40 fcs=0x1d20 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=84 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x1100b source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\x06e\xd1SP\x84An`\xb5' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=2 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 2, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 24 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=41 fcs=0x28ad |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=84 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x1100c source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='%e\xcaK\xe0\xf3"o\xa0\x87' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=2 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 2, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 25 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=42 fcs=0x82b5 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=84 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x1100d source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data=',\x1cH+E\xda=\x1au\xca' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=2 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 2, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 26 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=43 fcs=0x7815 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=84 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x1100e source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\xbd4M\x9et\x89\xe0\x8f[t' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=2 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 2, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 27 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=44 fcs=0x3662 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=103 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x1100f source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='l\x81\xd3\xd4\xc0\xb9\xcd\x840X' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=3 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 3, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 28 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=188 fcs=0x6f2b |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 29 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=45 fcs=0xe1f9 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=103 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11010 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\xac\x1d\x0e\xe9\x89L\xf9\xbb|\xb1' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=3 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 3, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 30 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=46 fcs=0x4fee |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=103 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11011 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='&\xb5\x17\xb5\x8eL\x90XAx' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=3 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 3, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 31 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=47 fcs=0x6cff |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=30 seqnum=103 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11012 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\xfb\xecA^\xde\xd0\xad\xbd\x99\n' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=route request reserved=0 multicast=0 dest_addr_bit=0 many_to_one=not_m2one reserved=0 route_request_identifier=3 destination_address=0xf23e path_cost=0 |>
+{'reserved': 0, 'path_cost': 0, 'multicast': 0, 'many_to_one': 0, 'route_request_identifier': 3, 'link_status_list': [], 'PAN_ID_conflict_report': [], 'cmd_identifier': 1, 'dest_addr_bit': 0, 'rr_relay_list': [], 'destination_address': 62014}
+------------------------------------------------------------
+#############################################################################
+packet : 32 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=189 fcs=0xc676 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 33 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=48 fcs=0x8046 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=1 seqnum=104 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11013 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\xaa\xb6pd\xd4m' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=0 |>
+  This is a Link status message
+ Number of Neighbors : 0 
+ Neighbors : 
+------------------------------------------------------------
+#############################################################################
+packet : 34 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=146 fcs=0x7f80 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0xf23e |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0xf23e radius=1 seqnum=42 ext_src=90:fd:9f:ff:fe:0b:01:63 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22000 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\xc3\xffM)\x1f\xaa' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=0 |>
+  This is a Link status message
+ Number of Neighbors : 0 
+ Neighbors : 
+------------------------------------------------------------
+#############################################################################
+packet : 35 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=190 fcs=0x3580 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 36 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=191 fcs=0x9cdd |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x06\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 37 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=152 fcs=0xc8eb |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0xf23e |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=data flags=security+extended_src destination=0xfffd source=0xf23e radius=30 seqnum=43 ext_src=90:fd:9f:ff:fe:0b:01:63 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22001 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\x9em7\xc2\x9b)\x91\x0c.f\xa4\x86\x9b9\x90\x0e<\x82^3\xe3\xa2\xda\xb5' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0xfffd 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=broadcast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=1 direction=0 manufacturer_specific=0 zcl_frametype=reserved3 transaction_sequence=0 command_identifier=read_attributes |<Raw  load='\x00\x000\x81>\xf2c\x01\x0b\xfe\xff\x9f\xfd\x90\x8e' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 1, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 3}
+------------------------------------------------------------
+#############################################################################
+packet : 38 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=49 fcs=0x18d6 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=data flags=security+extended_src destination=0xfffd source=0xf23e radius=29 seqnum=43 ext_src=90:fd:9f:ff:fe:0b:01:63 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11014 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data="\x9a\xf9\xfe\xa7\x17}\xde'\xe1\x85\x02\x00*\x97\x19\xa4\x0f\x87\\\x94,\xcf\xb2h" |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0xfffd 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=broadcast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=1 direction=0 manufacturer_specific=0 zcl_frametype=reserved3 transaction_sequence=0 command_identifier=read_attributes |<Raw  load='\x00\x000\x81>\xf2c\x01\x0b\xfe\xff\x9f\xfd\x90\x8e' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 1, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 3}
+------------------------------------------------------------
+#############################################################################
+packet : 39 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=153 fcs=0x4751 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0xf23e |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=data flags=security+extended_src destination=0xfffd source=0xf23e radius=30 seqnum=43 ext_src=90:fd:9f:ff:fe:0b:01:63 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22002 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\x0b\xca<\xf2\xb9\x97\x8b\x024*~\x04|\xdf]\xba\x12q\x17\x9f/\xbcZ\x0e' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0xfffd 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=broadcast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=1 direction=0 manufacturer_specific=0 zcl_frametype=reserved3 transaction_sequence=0 command_identifier=read_attributes |<Raw  load='\x00\x000\x81>\xf2c\x01\x0b\xfe\xff\x9f\xfd\x90\x8e' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 1, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 3}
+------------------------------------------------------------
+#############################################################################
+packet : 40 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=50 fcs=0x82d5 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0x9f3b |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0x9f3b radius=1 seqnum=105 ext_src=00:0b:57:ff:fe:b5:db:ec |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11015 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='P\xbd=\xa6\xa9\x8a-I\xa9' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=1 link_status_list=[<LinkStatusEntry  neighbor_network_address=0xf23e reserved1=0 outgoing_cost=7 reserved2=0 incoming_cost=1 |>] |>
+  This is a Link status message
+ Number of Neighbors : 1 
+ Neighbors : 
+          0xf23e
+------------------------------------------------------------
+#############################################################################
+packet : 41 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=154 fcs=0x652e |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0xf23e |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0xf23e radius=1 seqnum=44 ext_src=90:fd:9f:ff:fe:0b:01:63 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22003 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\xb2\xe2{\xb8\xcd\xe4\xf4\xf3y' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=1 link_status_list=[<LinkStatusEntry  neighbor_network_address=0x9f3b reserved1=0 outgoing_cost=1 reserved2=0 incoming_cost=1 |>] |>
+  This is a Link status message
+ Number of Neighbors : 1 
+ Neighbors : 
+          0x9f3b
+------------------------------------------------------------
+#############################################################################
+packet : 42 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=155 fcs=0xa928 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0xf23e |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=data flags=security+extended_src destination=0xfffd source=0xf23e radius=30 seqnum=43 ext_src=90:fd:9f:ff:fe:0b:01:63 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22004 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\xf4K\x19\x0e z\xfb \x00\x96\xae~\x93\xf7%\x07n\x0c\xd3o8\t\xbc3' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0xfffd 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=broadcast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=1 direction=0 manufacturer_specific=0 zcl_frametype=reserved3 transaction_sequence=0 command_identifier=read_attributes |<Raw  load='\x00\x000\x81>\xf2c\x01\x0b\xfe\xff\x9f\xfd\x90\x8e' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 1, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 3}
+------------------------------------------------------------
+#############################################################################
+packet : 43 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=True fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=51 fcs=0xd310 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xf23e src_addr=0x9f3b |<ZigbeeNWK  discover_route=1 proto_version=2 frametype=data flags=security destination=0xf23e source=0x9f3b radius=30 seqnum=111 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11016 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data="I\x7f\xac'fd\xa9\x84\x89s\x85\xe4\xb8\xd8Z\x8e\xcb" |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xf23e 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=unicast aps_frametype=data counter=11 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=0 direction=0 manufacturer_specific=1 zcl_frametype=reserved2 manufacturer_code=0x400 transaction_sequence=1 command_identifier=111 |<Raw  load=')\x10\x00\x00\x00\x00' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 1, 'disable_default_response': 0, 'command_identifier': 111, 'manufacturer_code': 1024, 'manufacturer_specific': 1, 'zcl_frametype': 2}
+------------------------------------------------------------
+#############################################################################
+packet : 44 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Ack fcf_srcaddrmode=None fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=51 fcs=0xb6a0 |>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 45 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=True fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=156 fcs=0x5b20 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0x9f3b src_addr=0xf23e |<ZigbeeNWK  discover_route=1 proto_version=2 frametype=data flags=security destination=0x9f3b source=0xf23e radius=30 seqnum=46 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22005 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\xf2\x8cs\xa3\xbb\xd0\xf2QD\xc9L\x1c\x01\xb37\xe8\xc4\x1c\x19=' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0x9f3b 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=unicast aps_frametype=data counter=111 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=0 direction=0 manufacturer_specific=1 zcl_frametype=reserved2 manufacturer_code=0x400 transaction_sequence=1 command_identifier=default_response |<Raw  load='1\x18\x00\x01\x00\x00\x00\x10\x01' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 1, 'disable_default_response': 0, 'command_identifier': 11, 'manufacturer_code': 1024, 'manufacturer_specific': 1, 'zcl_frametype': 2}
+------------------------------------------------------------
+#############################################################################
+packet : 46 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Ack fcf_srcaddrmode=None fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=156 fcs=0xeb5d |>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 47 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=True fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=52 fcs=0xd99c |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xf23e src_addr=0x9f3b |<ZigbeeNWK  discover_route=1 proto_version=2 frametype=data flags=security destination=0xf23e source=0x9f3b radius=30 seqnum=117 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11017 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='_h\xf0w\xd6=\xa0E\xfa_q\x91P\xfb\xd0\xdd\xfa' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xf23e 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=unicast aps_frametype=data counter=11 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=0 direction=1 manufacturer_specific=0 zcl_frametype=profile-wide transaction_sequence=0 command_identifier=write_attributes_response |<Raw  load='\x01o,\x10\x00\x00\x00\x00' |>>>
+  This a ZCL Message 
+{'direction': 1, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 0, 'command_identifier': 4, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 0}
+------------------------------------------------------------
+#############################################################################
+packet : 48 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Ack fcf_srcaddrmode=None fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=52 fcs=0xc21f |>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 49 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=True fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=157 fcs=0xbde2 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0x9f3b src_addr=0xf23e |<ZigbeeNWK  discover_route=1 proto_version=2 frametype=data flags=security destination=0x9f3b source=0xf23e radius=30 seqnum=48 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22006 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\xe3\xaeA\xe6\x1a\xfa\x87\x97\xf3_\xef\xd3\x01\x1av\x8ebK\xd2\r' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0x9f3b 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=unicast aps_frametype=data counter=111 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=0 direction=1 manufacturer_specific=0 zcl_frametype=profile-wide transaction_sequence=0 command_identifier=write_attributes_response |<Raw  load='\x01\x0b2\x18\x00\x01\x00\x00\x00 \xfe' |>>>
+  This a ZCL Message 
+{'direction': 1, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 0, 'command_identifier': 4, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 0}
+------------------------------------------------------------
+#############################################################################
+packet : 50 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Ack fcf_srcaddrmode=None fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=157 fcs=0xfad4 |>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 51 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=True fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=53 fcs=0x5463 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xf23e src_addr=0x9f3b |<ZigbeeNWK  discover_route=1 proto_version=2 frametype=data flags=security destination=0xf23e source=0x9f3b radius=30 seqnum=123 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11018 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='\xd9\xccZsM\x03\x1c\xf1Y\xeb\x16\xbb\xb6\xc1E\xcf\xaa\x85e' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xf23e 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=unicast aps_frametype=data counter=11 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=0 direction=0 manufacturer_specific=0 zcl_frametype=profile-wide transaction_sequence=3 command_identifier=write_attributes_response |<Raw  load='\x01o/\x10\x00\x00\x03\x00\x04\x00' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 3, 'disable_default_response': 0, 'command_identifier': 4, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 0}
+------------------------------------------------------------
+#############################################################################
+packet : 52 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Ack fcf_srcaddrmode=None fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=53 fcs=0xd396 |>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 53 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=True fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=158 fcs=0x5ef9 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0x9f3b src_addr=0xf23e |<ZigbeeNWK  discover_route=1 proto_version=2 frametype=data flags=security destination=0x9f3b source=0xf23e radius=30 seqnum=50 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22007 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data="y3\x80\xa9'w\x83|\x84g/\x99\x84L\xfe:p\x80\xe1n\x84;\xa3\xa1j\xb6\xbf" |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0x9f3b 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=unicast aps_frametype=data counter=111 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=0 direction=0 manufacturer_specific=0 zcl_frametype=profile-wide transaction_sequence=3 command_identifier=write_attributes_response |<Raw  load='\x01\x0b3\x18\x00\x01\x03\x00\x00!\x14u\x04\x00\x00!\xf7h' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 3, 'disable_default_response': 0, 'command_identifier': 4, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 0}
+------------------------------------------------------------
+#############################################################################
+packet : 54 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Ack fcf_srcaddrmode=None fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=158 fcs=0xc84f |>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 55 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=192 fcs=0xf284 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 56 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=193 fcs=0x5bd9 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 57 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=159 fcs=0xa8f9 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0xf23e |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0xf23e radius=1 seqnum=51 ext_src=90:fd:9f:ff:fe:0b:01:63 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22008 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\x0b\xcb\x89\x83\x8e\x12\x84\xfb\xf4' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=1 link_status_list=[<LinkStatusEntry  neighbor_network_address=0x9f3b reserved1=0 outgoing_cost=1 reserved2=0 incoming_cost=1 |>] |>
+  This is a Link status message
+ Number of Neighbors : 1 
+ Neighbors : 
+          0x9f3b
+------------------------------------------------------------
+#############################################################################
+packet : 58 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=True fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=54 fcs=0x2f3 |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xf23e src_addr=0x9f3b |<ZigbeeNWK  discover_route=1 proto_version=2 frametype=data flags=security destination=0xf23e source=0x9f3b radius=30 seqnum=125 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x11019 source=00:0b:57:ff:fe:b5:db:ec key_seqnum=0 data='0\xa9\xa35\xea\x0e\xba\xce\x8a#\xbb\xbf\x17\xc7\x06T;' |>>>>>
+------------------------------------------------------------
+ Source : 0x9f3b 
+ Destination : 0xf23e 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=unicast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=0 direction=0 manufacturer_specific=0 zcl_frametype=cluster-specific transaction_sequence=0 command_identifier=read_attributes |<Raw  load='\x00\x000\x03>\xf2\x00\x00' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 0, 'disable_default_response': 0, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 1}
+------------------------------------------------------------
+#############################################################################
+packet : 59 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Ack fcf_srcaddrmode=None fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=54 fcs=0xe10d |>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 60 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=True fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=160 fcs=0xa01a |<Dot15d4Data  dest_panid=0x4798 dest_addr=0x9f3b src_addr=0xf23e |<ZigbeeNWK  discover_route=1 proto_version=2 frametype=data flags=security destination=0x9f3b source=0xf23e radius=30 seqnum=53 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x22009 source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data="\x9b\x83\xac\x9f\xcf\xd3\xac\xeb\x15@Q\x91\xa8\x9f\xae\xfe\x90'F\xe2:\xb5}P" |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0x9f3b 
+ Need to Decrypt this packet 
+<ZigbeeAppDataPayload  frame_control= delivery_mode=unicast aps_frametype=data counter=0 |<ZigbeeClusterLibrary  reserved=0 disable_default_response=0 direction=0 manufacturer_specific=0 zcl_frametype=cluster-specific transaction_sequence=128 command_identifier=read_attributes |<Raw  load='\x00\x004\x03\x00c\x01\x0b\xfe\xff\x9f\xfd\x90>\xf2' |>>>
+  This a ZCL Message 
+{'direction': 0, 'reserved': 0, 'transaction_sequence': 128, 'disable_default_response': 0, 'command_identifier': 0, 'manufacturer_code': None, 'manufacturer_specific': 0, 'zcl_frametype': 1}
+------------------------------------------------------------
+#############################################################################
+packet : 61 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Ack fcf_srcaddrmode=None fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=160 fcs=0x10b2 |>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 62 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=194 fcs=0xa82f |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 63 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=False fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Beacon fcf_srcaddrmode=Long fcf_framever=0 fcf_destaddrmode=None fcf_reserved_2=0 seqnum=195 fcs=0x172 |<Dot15d4Beacon  src_panid=0xb31c src_addr=00:23:f7:45:ee:1f:0c:6a sf_sforder=0 sf_beaconorder=7 sf_assocpermit=True sf_pancoord=True sf_reserved=0 sf_battlifeextend=False sf_finalcapslot=15 gts_spec_permit=False gts_spec_reserved=0 gts_spec_desccount=0 pa_num_short=0 pa_reserved_1=0 pa_num_long=0 pa_reserved_2=0 |<Raw  load='\x00\x00j\x0c\x1f\xeeE' |>>>>
+------------------------------------------------------------
+------------------------------------------------------------
+#############################################################################
+packet : 64 
+<bound method Dot15d4FCS.layers of <Dot15d4FCS  fcf_reserved_1=0 fcf_panidcompress=True fcf_ackreq=False fcf_pending=False fcf_security=False fcf_frametype=Data fcf_srcaddrmode=Short fcf_framever=0 fcf_destaddrmode=Short fcf_reserved_2=0 seqnum=161 fcs=0x891f |<Dot15d4Data  dest_panid=0x4798 dest_addr=0xffff src_addr=0xf23e |<ZigbeeNWK  discover_route=0 proto_version=2 frametype=command flags=security+extended_src destination=0xfffc source=0xf23e radius=1 seqnum=54 ext_src=90:fd:9f:ff:fe:0b:01:63 |<ZigbeeSecurityHeader  reserved1= extended_nonce=1 key_type=network_key nwk_seclevel=None fc=0x2200a source=90:fd:9f:ff:fe:0b:01:63 key_seqnum=0 data='\xef\xd5\xdd\x9b\xe7\xdc\xb5k\x80' |>>>>>
+------------------------------------------------------------
+ Source : 0xf23e 
+ Destination : 0xfffc 
+ Need to Decrypt this packet 
+<ZigbeeNWKCommandPayload  cmd_identifier=link status reserved=0 last_frame=1 first_frame=1 entry_count=1 link_status_list=[<LinkStatusEntry  neighbor_network_address=0x9f3b reserved1=0 outgoing_cost=1 reserved2=0 incoming_cost=1 |>] |>
+  This is a Link status message
+ Number of Neighbors : 1 
+ Neighbors : 
+          0x9f3b
+------------------------------------------------------------
