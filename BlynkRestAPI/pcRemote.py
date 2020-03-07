@@ -3,7 +3,7 @@ import sys
 import termios
 import contextlib
 import urllib2
-
+import time
 
 
 v1 = ""
@@ -20,6 +20,9 @@ def sendRequest():
 
 def parse(val):
     global v1
+
+    print ("received" ,val)
+
     if (val == 65):
         print "pressed forward"
         v1 = "11"
@@ -32,6 +35,9 @@ def parse(val):
     if (val == 68):
         print "pressed left"
         v1 = "44" 
+    if (val == 120):
+        print "pressed stop"
+        v1 = "99" 
 
     sendRequest()
 
@@ -56,11 +62,14 @@ def main():
                 ch = sys.stdin.read(1)
                 if not ch or ch == chr(4):
                     break
-                #print '%02x\n' % ord(ch),
+                print "here"
+                print '%02x\n' % ord(ch),
                 parse(ord(ch))
         except (KeyboardInterrupt, EOFError):
             pass
 
 
 if __name__ == '__main__':
+    v1 = "99" 
+    sendRequest()
     main()

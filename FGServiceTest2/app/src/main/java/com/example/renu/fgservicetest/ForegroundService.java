@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -51,6 +52,8 @@ import com.felhr.usbserial.UsbSerialInterface;
 public class ForegroundService extends Service {
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
+
+    int[] Device_List = new int[] {9025,5048,10755};
 
     String url = "http://blynk-cloud.com/ea446f7a4ef4437a88726889ebf949fd/get/v1";
     String TAG = "FG_TASK_TEST";
@@ -95,8 +98,9 @@ public class ForegroundService extends Service {
             for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
                 device = entry.getValue();
                 int deviceVID = device.getVendorId();
-                if (deviceVID == 9025)//Arduino Vendor ID
-                {
+                //if (Arrays.asList(Device_List).contains(deviceVID)) // Vendor ID
+                if (deviceVID == 9025) // Vendor ID
+                    {
                     PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
                     usbManager.requestPermission(device, pi);
                     keep = false;
@@ -246,21 +250,26 @@ public class ForegroundService extends Service {
             result[count++] = element;
         }
 
-        if(result[0] == 11){
+        if(result[1] == 1023){
             Log.d(TAG,"Forward");
             SendSerialData("w");
         }
-        if(result[0] == 22){
+        if(result[1] == 0){
             Log.d(TAG,"Back");
             SendSerialData("s");
         }
-        if(result[0] == 44){
+        if(result[0] == 0){
             Log.d(TAG,"Left");
-            SendSerialData("x");
+            SendSerialData("a");
         }
-        if(result[0] == 33){
-            SendSerialData("x");
+        if(result[0] == 1023){
+            SendSerialData("d");
             Log.d(TAG,"Right");
+        }
+
+        if(result[0] == 512 && result[1] == 512){
+            SendSerialData("x");
+            Log.d(TAG,"Stop");
         }
 
     }
