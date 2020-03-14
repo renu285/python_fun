@@ -1,10 +1,12 @@
 import os
 import sys
 import networkx as nx
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 from scapy.all import *
 from killerbee import *
 from killerbee.scapy_extensions import *    # this is explicit because I didn't want to modify __init__.py
-
+from time import sleep
 
 
 def updateFileds(ed,raw):
@@ -18,7 +20,8 @@ def updateFileds(ed,raw):
 
 
 
-
+def DefaultCallback():
+    return
 
 
 
@@ -34,16 +37,22 @@ class BeeGrapher(object):
         self.nwKey = networkKey
         self.nodeList = []
         self.networkDict = {}
+        self.NewNodeCallback = DefaultCallback
+        self.LinkStatusCallback = DefaultCallback
 
 
+    def ParsePacket(self,packet):
+
+        parser = threading.Thread(target=self.ProcessPacket , args=(packet,))
+        parser.start()
 
     def PrintNetworkInfo(self):
         for k,v in self.networkDict.iteritems():
             print("Node : %x " %(k))
             for kn,vn in v.iteritems():
                 print kn,vn
-
-
+        
+        print(self.G.nodes())
 
     def Got_ZCL_OnOff_Message(self,srcAddr, destAddr, pkt):
 
@@ -84,10 +93,17 @@ class BeeGrapher(object):
             index = index + 6
         nodeDict['NeighborList'] = neigbor_list
 
+        self.LinkStatusCallback(srcAddr)
+
+        # Update the edges on the graph based on Link status message
+        #for node in neigbor_list:
+        #    self.G.add_edge(srcAddr,node)
+
+
    
 
 
-    def ParsePacket(self,packet):
+    def ProcessPacket(self,packet):
 
         panid = 0
         cmd_id = -1
@@ -111,8 +127,9 @@ class BeeGrapher(object):
 
         if (src_addr not in self.nodeList):
             self.nodeList.append(src_addr)
-
+            #self.G.add_node(src_addr)
             NodeDict = { 'NeighborList' : [],
+                         'srcAddr': src_addr,
                          'color_x' : 0.0,
                          'color_y' : 0.0,
                          'OnOff'   : 1
@@ -120,7 +137,8 @@ class BeeGrapher(object):
 
             self.networkDict[src_addr] = NodeDict
             print("Adding  Source : 0x%x to the list " %(src_addr))
-            
+            self.NewNodeCallback(src_addr)
+
         if(packet.haslayer(ZigbeeSecurityHeader)):
             
             print(" Need to Decrypt this packet ")
@@ -129,7 +147,7 @@ class BeeGrapher(object):
             if (ed.haslayer(ZigbeeNWKCommandPayload)):
                 
                 cmd_id = ed.getlayer(ZigbeeNWKCommandPayload).fields['cmd_identifier']
-                print("Here")
+            
             if (ed.haslayer(ZigbeeAppDataPayload)):
 
                 ed.getlayer(ZigbeeAppDataPayload).fields['frame_control'] = int(raw[0:2],16)
@@ -161,3 +179,21 @@ class BeeGrapher(object):
                         self.numPackets = self.numPackets+1
                         return
 
+
+'''
+data = rdpcap(sys.argv[1])
+PANID = 4982
+network_key = "0BAD0BAD0BAD0BAD0BAD0BAD0BAD0BAD"
+
+
+BeeParser = BeeGrapher(PANID,network_key)
+
+index = int(sys.argv[2])
+for packet in data:
+    BeeParser.ParsePacket(packet)
+    sleep(1)
+
+BeeParser.PrintNetworkInfo()
+ani = animation.FuncAnimation(BeeParser.fig, BeeParser.update , frames=1, interval=500, repeat=True)
+plt.show()
+'''
