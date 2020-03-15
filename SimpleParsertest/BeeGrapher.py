@@ -7,7 +7,8 @@ from scapy.all import *
 from killerbee import *
 from killerbee.scapy_extensions import *    # this is explicit because I didn't want to modify __init__.py
 from time import sleep
-
+import subprocess
+#from rgb_xy import Converter
 
 def updateFileds(ed,raw):
     
@@ -23,7 +24,22 @@ def updateFileds(ed,raw):
 def DefaultCallback():
     return
 
+def GetFloat(num):
 
+    num = hex(num)
+    command = ['./hexToFloat' , str(num)] 
+    pid = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    log_data, dummy = pid.communicate()
+    return float(log_data)
+
+def GetCmapValue(x,y):
+
+    x = str(hex(x))
+    x = x[2:]
+    y = str(hex(y))
+    y = y[2:]
+    value = '#' + x + y 
+    return value
 
 
 
@@ -35,11 +51,12 @@ class BeeGrapher(object):
         self.numPackets = 0;
         self.panID = panID
         self.nwKey = networkKey
+        self.nodeCount = 0
         self.nodeList = []
         self.networkDict = {}
         self.NewNodeCallback = DefaultCallback
         self.LinkStatusCallback = DefaultCallback
-
+        self.ColorMap = []
 
     def ParsePacket(self,packet):
 
@@ -76,6 +93,32 @@ class BeeGrapher(object):
    
 
 
+    def Got_ColorControl_Message(self,srcAddr, destAddr, pkt):
+
+        print(" Color Control Message " )
+        zcl_frame_type = int(pkt[16:18], 16)
+        print(zcl_frame_type)
+        if (zcl_frame_type != 0x11):
+            print("Read attributes and responses Ignored")
+            return
+
+        cmd = int(pkt[20:22])
+
+        if(cmd == 0x07):
+            x_high = int(pkt[22:24] , 16)
+            x_low =  int(pkt[24:26] , 16)
+            y_high = int(pkt[26:28] , 16)
+            y_low =  int(pkt[28:30] , 16)
+
+            x = x_high |  (x_low << 8)
+            y = y_high |  (y_low << 8)
+
+            colorValue = GetCmapValue(x,y)
+            nodeDict = self.networkDict[srcAddr]
+            nodeId = nodeDict['Id']
+            self.ColorMap[nodeId] = colorValue
+
+    
     def Got_LinkStatus_Message(self, srcAddr, pkt):
 
         num_neighbors = int(pkt[3],16)
@@ -132,9 +175,11 @@ class BeeGrapher(object):
                          'srcAddr': src_addr,
                          'color_x' : 0.0,
                          'color_y' : 0.0,
+                         'Id'      : self.nodeCount,
                          'OnOff'   : 1
                         }
-
+            self.ColorMap.append('#ffee00')
+            self.nodeCount = self.nodeCount + 1 
             self.networkDict[src_addr] = NodeDict
             print("Adding  Source : 0x%x to the list " %(src_addr))
             self.NewNodeCallback(src_addr)
@@ -170,14 +215,15 @@ class BeeGrapher(object):
                     
                     self.Got_ZCL_OnOff_Message(src_addr, dest_addr, raw)
                         
-                    if (clusterID == 0x0008 and profileID == 260):
-                        print(" Color control message  Ignore for now")
-                        #self.Got_ColorControl_Message(src_addr, dest_addr, raw)
+                if (clusterID == 0x0300 and profileID == 260):
+                    #print(ed.getlayer(ZigbeeAppDataPayload).fields)
+                    #print( ed.getlayer(ZigbeeAppDataPayload).fields['frame_control'])
+                    self.Got_ColorControl_Message(src_addr, dest_addr, raw)
                         
-                    if (clusterID == 0x0300 and profileID == 260):
-                        print(" Level control message  Ignore for now")
-                        self.numPackets = self.numPackets+1
-                        return
+                if (clusterID == 0x0800 and profileID == 260):
+                    print(" Level control message  Ignore for now")
+                    self.numPackets = self.numPackets+1
+                    return
 
 
 '''
