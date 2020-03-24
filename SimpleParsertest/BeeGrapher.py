@@ -3,12 +3,13 @@ import sys
 import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from rgbxy import Converter
 from scapy.all import *
 from killerbee import *
 from killerbee.scapy_extensions import *    # this is explicit because I didn't want to modify __init__.py
 from time import sleep
 import subprocess
-#from rgb_xy import Converter
+from rgbxy import Converter
 
 def updateFileds(ed,raw):
     
@@ -34,11 +35,29 @@ def GetFloat(num):
 
 def GetCmapValue(x,y):
 
-    x = str(hex(x))
-    x = x[2:]
-    y = str(hex(y))
-    y = y[2:]
-    value = '#' + x + y 
+    #x = str(hex(x))
+    #x = x[2:]
+    #y = str(hex(y))
+    #y = y[2:]
+    
+    x = GetFloat(x)
+    y = GetFloat(y)
+
+    converter = Converter() 
+    (r,g,b) = converter.xy_to_rgb(x,y)
+    r = str(hex(r))
+    r = r[2:]
+    g = str(hex(g))
+    g = g[2:]
+    b = str(hex(b))
+    b = b[2:]
+    if(len(r) == 1):
+        r = "0"+ r 
+    if(len(g) == 1):
+        g = "0" + g
+    if(len(b) == 1):
+        b = "0" + b
+    value = '#' + r  + g + b 
     return value
 
 
@@ -87,10 +106,19 @@ class BeeGrapher(object):
         status = int(pkt[20:],16)
         print (" Status : %d " %( status))
         print("     On Off status %d"%(status))
-        if (srcAddr in self.nodeList):
-            nodeDict = self.networkDict[srcAddr]
+        if (destAddr in self.nodeList):
+            nodeDict = self.networkDict[destAddr]
             nodeDict['OnOff'] = status
-   
+            if(status == 0x00):
+                nodeId = nodeDict['Id']
+                self.ColorMap[nodeId] = '#000000' 
+            if(status == 0x01):
+                x = nodeDict['color_x'] 
+                y = nodeDict['color_y']
+                colorValue = GetCmapValue(x,y)
+                nodeId = nodeDict['Id']
+                self.ColorMap[nodeId] = colorValue
+
 
 
     def Got_ColorControl_Message(self,srcAddr, destAddr, pkt):
@@ -114,8 +142,11 @@ class BeeGrapher(object):
             y = y_high |  (y_low << 8)
 
             colorValue = GetCmapValue(x,y)
-            nodeDict = self.networkDict[srcAddr]
+            nodeDict = self.networkDict[destAddr]
             nodeId = nodeDict['Id']
+            nodeDict['color_x'] = x
+            nodeDict['color_y'] = y
+            print("ColoValue : %s " %(colorValue))
             self.ColorMap[nodeId] = colorValue
 
     
@@ -151,15 +182,15 @@ class BeeGrapher(object):
         panid = 0
         cmd_id = -1
     
-        print("------------------------------------------")
-        print(self.numPackets)
-        print("------------------------------------------")
+        #print("------------------------------------------")
+        #print(self.numPackets)
+        #print("------------------------------------------")
 
         if packet.haslayer(Dot15d4Data):
             panid = packet.getlayer(Dot15d4Data).fields['dest_panid']
 
         if (panid != self.panID):
-            print(" Drop this packet panid [%x] " %(panid))
+            #print(" Drop this packet panid [%x] " %(panid))
             self.numPackets = self.numPackets + 1
             return
         
@@ -173,21 +204,21 @@ class BeeGrapher(object):
             #self.G.add_node(src_addr)
             NodeDict = { 'NeighborList' : [],
                          'srcAddr': src_addr,
-                         'color_x' : 0.0,
-                         'color_y' : 0.0,
+                         'color_x' : 0.4685,
+                         'color_y' : 0.4620,
                          'Id'      : self.nodeCount,
                          'OnOff'   : 1
                         }
             self.ColorMap.append('#ffee00')
             self.nodeCount = self.nodeCount + 1 
             self.networkDict[src_addr] = NodeDict
-            print("Adding  Source : 0x%x to the list " %(src_addr))
+            #print("Adding  Source : 0x%x to the list " %(src_addr))
             self.NewNodeCallback(src_addr)
 
         if(packet.haslayer(ZigbeeSecurityHeader)):
             
-            print(" Need to Decrypt this packet ")
-            ed,raw = kbdecrypt(packet,self.nwKey.decode('hex'),verbose=5)
+            #print(" Need to Decrypt this packet ")
+            ed,raw = kbdecrypt(packet,self.nwKey.decode('hex'),verbose=0)
             
             if (ed.haslayer(ZigbeeNWKCommandPayload)):
                 
@@ -212,7 +243,7 @@ class BeeGrapher(object):
                 profileID = ed.getlayer(ZigbeeAppDataPayload).fields['profile']
                     
                 if (clusterID == 6 and profileID == 260):                        
-                    
+
                     self.Got_ZCL_OnOff_Message(src_addr, dest_addr, raw)
                         
                 if (clusterID == 0x0300 and profileID == 260):
@@ -221,7 +252,7 @@ class BeeGrapher(object):
                     self.Got_ColorControl_Message(src_addr, dest_addr, raw)
                         
                 if (clusterID == 0x0800 and profileID == 260):
-                    print(" Level control message  Ignore for now")
+                    #print(" Level control message  Ignore for now")
                     self.numPackets = self.numPackets+1
                     return
 
