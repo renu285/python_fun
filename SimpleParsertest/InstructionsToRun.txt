@@ -1,0 +1,6 @@
+1. Run sniffer in another terminal so that it writes to named FIFO
+  sudo ./whsniff -c 17 > /tmp/whsniff 
+
+2. Specify sniffing mode as follows 
+   sniff(offline="/path/to/fifo", [...])
+
